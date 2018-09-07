@@ -44,9 +44,9 @@ install_requires = ['six>=1.7.0']
 
 # detect Python for android
 platform = sys.platform
-ndkplatform = getenv('NDKPLATFORM')
-if ndkplatform is not None and getenv('LIBLINK'):
-    platform = 'android'
+#ndkplatform = getenv('NDKPLATFORM')
+#if ndkplatform is not None and getenv('LIBLINK'):
+platform = 'android'
 
 # detect cython
 try:
@@ -66,8 +66,8 @@ except ImportError:
 
 if platform == 'android':
     # for android, we use SDL...
-    libraries = ['sdl', 'log']
-    library_dirs = ['libs/' + getenv('ARCH')]
+    libraries = ['SDL2', 'log']
+    #library_dirs = ['libs/' + getenv('ARCH')]
 elif platform == 'darwin':
     import subprocess
     framework = subprocess.Popen(
